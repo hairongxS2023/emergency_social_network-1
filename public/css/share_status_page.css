@@ -1,0 +1,58 @@
+  /* Add some basic styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    margin: 0;
+    padding: 0px;
+    color: #000000;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+
+  .button-shrink {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .button-shrink:hover {
+    transform: scale(0.9);
+  }
+  
+  .button-shrink:active {
+    transform: scale(0.8);
+  }
+  
+  .button-expand {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .button-expand:hover {
+    transform: scale(1.1);
+  }
+  
+  .button-expand:active {
+    transform: scale(1.2);
+  }
+
+  .blink {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }

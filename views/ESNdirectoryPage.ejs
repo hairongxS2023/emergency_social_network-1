@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergency Society Network Directory</title>
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <!-- <link rel="stylesheet" href="css/reset.css" /> -->
+    <link rel="stylesheet" href="css/ESNdirectoryPage.css" />
+    <link rel="icon" href="data:,">
+    <script src="js/helper.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/share_status_page.js"></script>
+    <script src="js/get_cookie.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="js/ESNdirectoryPage.js"></script>
+
+  </head>
+  <body>
+    <div id="voice-message-notification" class="voice-message-notification hidden" style="display: none;">
+      <p>Recieved a new Emergency voice message! Click to view.</p >
+      <!-- <button id="close-notification" class="close-notification">&times;</button> -->
+    </div>
+
+    <h1>
+      Emergency Society Network Directory
+      <div class="head-bar">
+          <div class="user-info">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span id="cur-user">Username: <%= username %></span>
+          </div>
+          <button class="button" id="logout-button" ><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+          <button class="button" id="search-button" ><i class="fa fa-search" aria-hidden="true"></i></button></div>
+      </div>
+    </h1>
+
+    
+    <button class="popup-button" id="task-button"><i class="fa fa-list-ul" id="back-icon"></i> </button>
+    <%- include('./popup.ejs') %>
+    <%- include('./announcement_input.ejs') %>  
+      <h2 id="announce-title">Announcements</h2>
+      <div class="announcement-nav">
+        <button class="announcement-tab-button active" data-target="announcement-container">General Announcements</button>
+        <button class="announcement-tab-button" data-target="emergency-announcement-container">Emergency Announcements</button>
+      </div>
+      <div id="announce-item">
+        <div class="announce-container" id="announcement-container">
+          <!-- General announcements go here -->
+        </div>
+      </div>
+      <div id="emergency-announce-item" style="display: none;">
+        <div class="announce-container" id="emergency-announcement-container">
+          <!-- Emergency announcements go here -->
+        </div>
+      </div>
+      <div class="text-popup" id="text-popup"  style="display: none;">
+        <div class="text-popup__content">
+          <h2>Edit an Emergency Announcement</h2>
+          <textarea id="text-message" rows="4" cols="50" placeholder="Enter your message here"></textarea>
+          <button class="confirm-button" id="submitText">Submit</button>
+          <button class="confirm-button" id="cancelText">Cancel</button>
+        </div>
+      </div>
+      <div class='private-popup' id="private-popup" style="display: none;">
+        <div class="private-popup__content">
+          <span class='close' id="private-close">&times;</span>
+          <p id="private-popup-text"></p >
+          <button id='change-username' class='popup-btn' style="display: none;">Change Username</button>
+          <button id='change-password' class='popup-btn' style="display: none;">Change Password</button>
+          <button id='change-privilege' class='popup-btn' style="display: none;">Switch Privilege</button>
+          <button id='change-statuses' class='popup-btn' style="display: none;">Switch Account Statuses</button>
+          <button id='start-private-chat' class='popup-btn'>Start Private Chat</button>
+
+        </div>
+      </div>
+      <div class="text-popup" id="change-profile-popup" style="display: none;">
+        <div class="text-popup__content" id="change-profile-popup__content">
+          <h2 id="change-profile-popup-text"></h2>
+          <textarea id="change-profile-input" rows="4" cols="50"></textarea>
+          <button class="confirm-button" id="submit-profile-change">Submit</button>
+          <button class="confirm-button" id="cancel-profile-change">Cancel</button>
+        </div>
+      </div>
+      <div class="text-popup" id="change-privilege-popup"  style="display: none;">
+        <div class="text-popup__content" id="change-privilege-popup__content">
+          <h2 id="change-privilege-popup-text"></h2>
+          <label>
+            <input type="radio" name="option" value="administrator" required>
+            administrator
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="option" value="coordinator">
+            coordinator
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="option" value="citizen">
+            citizen
+          </label>
+          <br>
+          <button class="confirm-button" id="submit-privilege-change">Submit</button>
+          <button class="confirm-button" id="cancel-privilege-change">Cancel</button>
+        </div>
+      </div>
+      <div class="text-popup" id="change-statuses-popup" style="display: none;">
+        <div class="text-popup__content" id="change-statuses-popup__content">
+          <h2 id="change-statuses-popup-text"></h2>
+          <label>
+            <input type="radio" name="option" value="active">
+            active
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="option" value="inactive">
+            inactive
+          </label>
+          <br>
+          <button class="confirm-button" id="submit-statuses-change">Submit</button>
+          <button class="confirm-button" id="cancel-statuses-change">Cancel</button>
+        </div>
+      </div>
+      <!-- <div class="announce-popup-container" id="announce-popup-container">
+        <div class="popup" id="popup"></div>
+      </div> -->
+    <!-- <button class="search-button" id="searchButton">Search Start</button> -->
+    <!-- <button id="searchNameButton" style="display:none;">Name Search</button>
+    <button id="searchStatusButton" style="display:none;">Status Search</button> -->
+    <!-- <div id="searchBox" style="display:none;">
+        <input type="text" placeholder="type in a username or part of a username.">
+        <button class="search-button">username search</button>
+    </div>
+    <div id="searchBox_status" style="display:none;">
+      <input type="text" placeholder="type in any status name, e.g. OK, emergency, help.">
+      <button class="search-button">status search</button>
+    </div>
+    <div id="searchBox_announcement" style="display:none;">
+      <input type="text" placeholder="type in any announcement!">
+      <button class = "search-announcment-button" >announcement search</button>
+    </div> -->
+    <!-- <button class="search-button" id="stopsearchButton">Search Stop</button> -->
+    <!-- <div id="searchAnnouncementsResult" style="display:none;">
+      <h2>Search Result for Announcements</h2>
+      <div class="announce-container" id="announcement-search-container">
+      </div>
+      <button id="show_announcement_more_btn">show 10 more</button>
+    </div> -->
+    <!-- <div id="searchResult" style="display:none;">
+        <h2>Search Result</h2>
+        <table id="searchResultTable">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Status</th>
+                    <th>Emergency Status</th>
+                </tr>
+            </thead>
+            <tbody>
+              < user information goes here -->
+            <!-- </tbody>
+        </table>
+    </div> -->
+    <div class="popup">
+      <button class="popup-button" id="administrator-button" >Speed Test</button>
+      <button class="popup-button" id="voice-button">Voice</button>
+      <button class="popup-button" id="flood-report-button" >Flood Report</button>
+      <button class="popup-button" id="assessment-button" >Self Assessment</button>
+      <button class="popup-button" id="donation-button">Resource</button>
+      <button class="popup-button" id="volunteer-button">Volunteer</button>
+    </div>
+    <div id="overlay">
+      <div id="sharestatuspopup"></div>
+    </div>
+    <script>
+      const popupButton = document.querySelector('.popup-button');
+      const popup = document.querySelector('.popup');
+      popupButton.addEventListener('click', () => {
+        popup.style.display = popup.style.display === 'none' ? 'block' :
+          'none';
+      });
+    </script>
+    <dev id="users-container">
+    <table id="online-users">
+      <thead id="threads">
+        <tr>
+          <th>User</th>
+          <th>Status</th>
+          <th>Emergency Status</th> 
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    </dev>
+  <!-- Add your navigation bar here -->
+  <div class="bottom-navbar">
+    <button class="popup-button" id="chat-button">Chat</button>
+    <button class="popup-button" id="sharestatus-button" >Status</button>
+    <button class="popup-button" id="announcement-button" >Announcement</button>
+  </div>
+  </body>
+</html>

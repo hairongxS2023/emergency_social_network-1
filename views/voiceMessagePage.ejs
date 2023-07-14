@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergency Voice Message</title>
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="css/voiceMessagePage.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <script src = "js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/get_cookie.js"></script>
+    <script src="js/helper.js"></script>
+    <script type="module" src="js/voiceMessagePage.js"> </script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+          <button type="button" id="back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+          <h1>Emergency Voice Message</h1>
+          <button type="button" id="submit_announcement"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+      <div class="user-info">
+        <div class="user-icon">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+        <div class="user-details">
+          <div class="user" id="user-name"></div>
+        </div>
+      </div>
+      <div class="text-popup" id="text-popup">
+        <div class="text-popup__content">
+          <h2>Create an Emergency Announcement</h2>
+          <textarea id="text-message" rows="4" cols="50" placeholder="Enter your message here"></textarea>
+          <button class="confirm-button" id="submitText">Submit</button>
+          <button class="confirm-button" id="cancelText">Cancel</button>
+        </div>
+      </div>
+      <div class="confirmation-popup" id="delete-confirmationPopup" style="display: none;">
+        <div class="confirmation-popup__content">
+          <h2>Confirm Deletion</h2>
+          <p>Are you sure you want to delete this voice message?</p>
+          <button class="confirm-button" id="confirmDelete">Yes, Delete</button>
+          <button class="confirm-button" id="cancelDelete">Cancel</button>
+        </div>
+      </div>
+      <div class="confirmation-popup" id="submit-confirmationPopup" style="display: none;">
+        <div class="confirmation-popup__content">
+          <h2>Confirm Sending</h2>
+          <p>Are you sure you want to send this voice message?</p>
+          <button class="confirm-button" id="confirmSubmit">Yes, Send</button>
+          <button class="confirm-button" id="cancelSubmit">Cancel</button>
+        </div>
+      </div>
+      <div class="confirmation-popup" id="text-confirmationPopup" style="display: none;">
+        <div class="confirmation-popup__content">
+          <h2>Confirm Post</h2>
+          <p>Are you sure everything in the Emergency Announcement is correct?</p>
+          <button class="confirm-button" id="confirmText">Yes, Post</button>
+          <button class="confirm-button" id="cancel_confirm_Text">Cancel</button>
+        </div>
+      </div>
+      <div class="voice-messages" id="voice-message-container">
+        <!-- audio add here -->
+      </div>
+      <div class="voice-input-container">
+        <div class="popup-content" id="record-popup" style="display: none;">
+            <div class="popup-header">
+              <button class="close-btn">&times;</button>
+            </div>
+            <div class="popup-body">
+              <p>Recording... <span id="recording-time">0:00</span></p>
+              <button class="stop-btn" id="stop">Stop</button>
+            </div>
+          </div>
+          <div class="bottom-bar">
+            <button class="record-button" id="record-btn">Record</button>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

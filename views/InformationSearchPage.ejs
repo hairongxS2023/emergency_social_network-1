@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergency Social Network Search</title>
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="css/InformationSearchCitizenPage.css" />
+    <link rel="stylesheet" href="css/ESNdirectoryPage.css" />
+    <script src = "js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/get_cookie.js"></script>
+    <script src="js/helper.js"></script>
+    <script type="module" src="js/InformationSearchPage.js"> </script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Emergency Social Network Search</h1>
+    </div>
+    <hr>
+    <div> 
+      <div style="margin-top: 20px;"> </div>
+      <form>
+        <div style="margin-top: 20px;"> </div>
+        <div class="container">
+          <label for="search"><b>Search</b></label>
+          <input type="text" placeholder="Enter Search" name="search" id="search" style="margin: 10px; padding: 5px;">
+          <button type="submit" id="search-input-btn" style="font-size: 12px;">Search</button>
+        </div>
+      </form>
+      <div style="margin-top: 20px;"> </div>
+      <hr>
+      <button class="searchButtons" id="back-btn">Stop Search</button>
+      <button class="searchButtons" id="load-more-btn" data-increment="10" style="font-size: 12px;">Load More (+)</button>
+      <button class="searchButtons" id="load-less-btn" data-increment="10" style="font-size: 12px;">Load Less (-)</button>
+    </div>
+    <div style="margin-top: 20px;"> </div>
+    <h2 id="searchResultsHeader">Search Result</h2>
+    <p id="result-count"></p>
+    <div class="result"></div>
+  </body>
+</html>

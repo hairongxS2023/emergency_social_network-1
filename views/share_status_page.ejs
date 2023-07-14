@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergency Society Network Directory</title>
+    <link rel="stylesheet" href="css/ESNdirectoryPage.css" />
+    <link rel="icon" href="data:,">
+	<script src = "js/set_offline.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type ="module" src="js/share_status_page.js"></script>
+  </head>
+  <body>
+	<div id="share-status-content">
+	<div class="container">
+		<h1 style="text-align: center;">Share Your Status</h1>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th style="text-align: center;">Status</th>
+					<th style="text-align: center;">Discription</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td id="ok_btn" style="text-align: center;"><button class="button-shrink" onclick="document.getElementById('feedback').textContent = 'You selected OK!'; document.getElementById('feedback').style.color = '#FFF'; document.getElementById('feedback').style.backgroundColor = '#005937';" style="background-image: url('asset/OK.png'); background-size: cover; background-position: center; width: 80px; height: 60px;"></button></td>
+				  <td>OK: I am OK: I do not need help.</td>
+				</tr>
+				<tr>
+				  <td id="help_btn" style="text-align: center;"><button class="button-shrink" onclick="document.getElementById('feedback').textContent = 'You selected HELP!'; document.getElementById('feedback').style.color = '#000'; document.getElementById('feedback').style.backgroundColor = '#FFE13A';" style="background-image: url('asset/HELP.png'); background-size: cover; background-position: center; width: 80px; height: 60px;"></button></td>
+				  <td>HELP: I need HELP, but this is not a life threatening emergency.</td>
+				</tr>
+				<tr>
+				  <td id="emergency_btn" style="text-align: center;"><button class="button-shrink" onclick="document.getElementById('feedback').textContent = 'You selected EMERGENCY!'; document.getElementById('feedback').style.color = '#FFF'; document.getElementById('feedback').style.backgroundColor = '#FF0000';" style="background-image: url('asset/EMERGENCY.png'); background-size: cover; background-position: center; width: 80px; height: 60px;"></button></td>
+				  <td>EMERGENCY: I need help now: this is a life threatening EMERGENCY!</td>
+				</tr>
+				<tr>
+				  <td colspan="2" style="text-align: center;"><div id="feedback" style="padding: 10px;"></div></td>
+				</tr>
+				<tr>
+					<td id="done_btn" style="text-align: center;"><button class="popup-button" style="width: 80px; height: 60px;"> Done</button></td>
+					<td></td>
+				</tr>
+			  </tbody>  
+		</table>
+	</div>
+</div>
+</body>
+</html>
+  

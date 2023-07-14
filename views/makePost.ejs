@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Make a Request for Volunteers</title>
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="css/makePost.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <script src = "js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/get_cookie.js"></script>
+    <script src="js/helper.js"></script>
+    <script type="module" src="js/makePost.js"> </script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Creating a Emergency Volunteer Request</h1>
+    
+    </div>
+    <form>
+        <label for="request-type">Request Type:</label>
+        <select name="request-type" id="request-type">
+            <option value="Water Supply">Food</option>
+            <option value="Shelter">Shelter</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Electricity">Other</option>
+        </select>
+        <label for="request-details">Details about the Volunteer Request:</label>
+        <textarea name="request-details" id="request-details" rows="5"></textarea>
+        <label for="volunteers-needed"># of Volunteers Needed:</label>
+        <input type="number" name="volunteers-needed" id="volunteers-needed" min="1" required>
+    </form>
+    <div class="button-container">
+        <button type="submit">Submit</button>
+        <button id="cancel-button">I don't need help anymore</button>
+    </div>
+    <div id="popup" style="display: none;">
+        <div id="popup-content">
+            <p id="popup-message"></p>
+            <button id="close-button">Close</button>
+        </div>
+    </div>
+</body>
+</html>

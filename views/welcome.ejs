@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome page</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" href="css/welcome.css">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+  <video autoplay muted loop>
+    <source src="/asset/previewvid.mp4" type="video/mp4" />
+  </video>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <div class="container">
+            <p>
+            <h1>Welcome to Emergency Security Network (ESN)! </h1>
+            <br\>
+            <h4>This system is designed to support small communities of civilians who are seriously affected in case of natural disasters. </h4>
+            <br\>
+            <h4>Here are basic instructions of how to share a status, where the status would be displayed and the meanings of every status.</h4>
+            <br\>
+            <h4>When entering ESN system, you could elect to share your status. Also you could choose not to share your status, then your status will be empty.</h4>
+            <br\>
+            <h4>Either on the directory screen or on the chat screens, the status will be displayed.</h4>
+            <br\>
+            <h4>On directory screen, the current status would be displayed. On the chat screens, the status at the time the message was sent will be displayed. </h4>
+            <br\>
+            <h3>However, the status will not be displayed next to announcements.</h3>
+            </p>
+            <form>
+            <table border="1" cellspacing="0" cellpadding="0" align="center" width="75%" class="status-table">
+                <tbody>
+                  <tr>
+                    <th align="center">Status</th>
+                    <th align="center">Explanation</th>
+                    <th align="center">Color Code</th>
+                    <th align="center">Possible Icon</th>
+                  </tr>
+                  <tr>
+                    <td align="center">OK</td>
+                    <td align="center">I am OK: I do not need help.</td>
+                    <td align="center">Green</td>
+                    <td align="center"><img src="asset/OK.png" width="32" height="32"></td>
+                  </tr>
+                  <tr>
+                    <td align="center">Help</td>
+                    <td align="center">I need help, but this is not a life threatening emergency.</td>
+                    <td align="center">Yellow</td>
+                    <td align="center"><img src="asset/HELP.png" width="32" height="32"></td>
+                  </tr>
+                  <tr>
+                    <td align="center">Emergency</td>
+                    <td align="center">I need help now: this is a life threatening emergency!</td>
+                    <td align="center">Red</td>
+                    <td align="center"><img src="asset/EMERGENCY.png" width="32" height="32"></td>
+                  </tr>
+                  <tr>
+                    <td align="center">Undefined</td>
+                    <td align="center">The user has not proved any status info.</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+              </table>
+              <br\>
+            <h5>Note: Please acknowledge that you understand the provided explanation. If so, please press the button below.  </h5>
+            <div class="text-center">
+                <button id="ack-button" class="button"  type="button">I acknowledge the terms</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="js/welcome.js"></script>
+</html>

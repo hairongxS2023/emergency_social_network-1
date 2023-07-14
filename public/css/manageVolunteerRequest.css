@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+.requests-header {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.join-request-header {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#request-container {
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+#joinRequest-container {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #34495e;
+    color: white;
+    padding: 2rem 0.7em;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.requests {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.request-bubble {
+    background-color: #ecf0f1;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.request-detail-and-volunteers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.request-detail {
+    flex-basis: 70%;
+    max-width: 50%;
+}
+
+.request-id {
+    font-weight: bold;
+}
+
+.request-sender {
+    font-style: italic;
+}
+
+.request-type,
+.request-details,
+.request-volunteers-needed,
+.request-volunteers-joined {
+    margin-top: 0.5rem;
+}
+
+.request-volunteers {
+    flex-basis: 25%;
+}
+
+.volunteer-name {
+    margin-bottom: 0.5rem;
+}
+
+.fulfill-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.fulfill-btn:hover {
+    background-color: #3e8e41;
+}
+
+
+.button-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.button-container>* {
+    width: 90%;
+    margin-bottom: 0.5rem;
+}
+
+.button-container>div {
+    width: 100%;
+    margin: 0.2rem 0;
+    margin-right: 0.6rem;
+}
+
+.button-container button {
+    width: 90%;
+    max-width: 30rem;
+    padding: 0.7rem;
+    background-color: #0077be;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+.button-container button:hover {
+    background-color: #005fa3;
+}
+
+
+.no-join-request {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.joinRequest-bubble {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.joinRequest-bubble div {
+    margin-bottom: 10px;
+}
+
+.joinRequest-bubble .apr-btn {
+    background-color: #4e79d6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.deny-btn{
+    background-color: #e80e06;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.request-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

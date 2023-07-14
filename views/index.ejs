@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="/css/index.css">  
+    <link rel="shortcut icon" href="/asset/logo.png">
+    
+    <link rel="icon" href="data:,">
+    <!-- <script src="jquery-3.6.1.min.js"></script> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type = "module" src=  "../public/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Join Community</title>
+</head>
+<body>
+    <!-- <% var active = active; %> -->
+    <video autoplay muted loop>
+        <source src="/asset/previewvid.mp4" type="video/mp4" />
+      </video>
+    <!-- <% if (active === "inactive") { %>
+    <div id="logged-out-popup" class="logged-out-popup">
+        <div class="inactive-popup-content">
+            <h2>Your account is inactive</h2>
+            <p>You have been set to inactive and logged out.</p>
+            <div class="logout-button-container">
+                <button class="logout-close-button">Close</button>
+            </div>
+        </div>
+    </div>
+    <% } %> -->
+    <div class="container">
+        <p class="msg" id="warning-msg"></p>
+        <!-- pop up window -->
+        <div id="registerMsgBox" class="MsgBox">
+            <div class="MsgBox-content">
+                <p>By clicking yes, agree to create account for you. <br>
+                    If you already had one, would log you in.</p>
+                <span class="close">&times;</span>
+                <button id="yes-btn" class="pop-btn" type="button">Yes</button>
+                <button id="no-btn" class="pop-btn" type="button">No</button>
+            </div>
+        </div>
+        <form class="form"></form>
+            <h1>Emergency Social Network</h1>
+            <label>Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter Username">
+            <label>Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter Password">
+            <div class="horizontal-align">
+                <button id="register-button" class="btn">Join Community</button>
+            </div>
+        </form>
+    </div>
+    <div id="inactive-popup" class="inactive-popup" style="display: none;">
+        <div class="inactive-popup-content">
+            <h2>Your account is inactive</h2>
+            <p>Please contact administrator for assistance.</p>
+            <div class="button-container">
+                <button class="close-button">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/index.js"></script>
+</html>

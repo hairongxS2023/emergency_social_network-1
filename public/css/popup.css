@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+
+.MsgBox{
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Fallback color */
+} 
+
+  /* Modal Content/Box */
+  .MsgBox-content {
+    color:rgb(7, 7, 7);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    height:20%;
+  }
+
+
+  /* The Close Button */
+ 
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+    margin:5% 5%;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .sender-name{
+    font-weight: bolder;
+    font-size: large;
+  }

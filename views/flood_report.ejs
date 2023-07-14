@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Reports</title>
+    <script src="js/get_cookie.js"></script>
+    <script src = "js/set_offline.js"></script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="js/flood_report.js"></script>
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="css/flood_report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+</head>
+<body>
+    <header>
+        <button type="button" id="back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <div class="page-header">
+            <h2>Flood Reports</h2>
+            <div class="user-info">
+                <i class="fa fa-user-circle" aria-hidden="true" ></i>
+                <span id="cur-user">Username: <%= username %></span>
+              </div>
+        </div>
+        <div class="submit-report">
+            <button id="submit-btn">Submit New Report</button>
+        </div>
+    </header>
+    <main>
+        <section class="flood-reports" id="report-section">
+            <!-- <article class="flood-report">
+                <img src="asset/flood1.jpg" alt="Flood image" class="flood-image">
+                <div class="flood-details">
+                    <h2 class="flood-location">Location: Example City</h2>
+                    <p class="flood-time">Time: 2023-03-30 12:00 PM</p>
+                    <p class="flood-poster">Poster: Hakan</p>
+                </div>
+                <div class="button-container">
+                    <button class="delete-btn"><i class="fa fa-trash"></i></button>
+                    <div class="vote-container">
+                        <button class="upvote-btn"><i class="fa fa-arrow-up"></i></button>
+                        <span class="vote-count">0</span>
+                        <button class="downvote-btn"><i class="fa fa-arrow-down"></i></button>
+                        <span class="vote-count">0</span>
+                    </div>
+                </div>
+            </article> -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; ESN Flood Report Portal. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

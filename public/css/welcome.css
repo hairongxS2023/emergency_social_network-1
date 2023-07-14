@@ -1,0 +1,72 @@
+body, html {  
+    height: 100%;
+   /* background: url('../asset/preview.jpg')  no-repeat center fixed;  */ 
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+} 
+
+h3 {
+    font-size: 10px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h4 {
+    font-size: 5px;
+    text-align: left;
+    font-weight: bolder;
+}
+
+h5 {
+    font-size: 3px;
+    text-align: center;
+}
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
+.container.status-table {
+    background-color: rgb(255, 255, 255);
+    padding: 10%;
+    border-radius: 5px;
+    margin: auto;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bolder;
+}
+
+body {
+    display: flex;
+}
+
+.container {       
+    background-color: rgba(255, 255, 255, 0.202);
+    color: #000000;
+    padding: 10%;
+    border-radius: 5px;
+    margin: auto;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+} 
+
+button {
+    background-color: #0080ff;
+    color: #fff;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bolder;
+    padding: 15px 30px;
+    margin: 10px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0073e6;
+}

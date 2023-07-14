@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergency Chat Room</title>
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="shortcut icon" href="#">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/publicChatPage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/publicChatPage.css" />
+    <script src = "js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/helper.js"></script>
+    <script defer src="/js/privateChatPage.js" > </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+  </head>
+  <body>
+    <div id="voice-message-notification" class="voice-message-notification hidden" style="display: none;"">
+      <p>Recieved a new Emergency voice message! Click to view.</p>
+      <!-- <button id="close-notification" class="close-notification">&times;</button> -->
+    </div>
+    <div id="user1" style="display: none;"><%= user1 %></div>
+    <div id="user2" style="display: none;" ><%= user2 %></div>
+    <div id="roomID" style="display: none;" ><%= roomID %></div>
+    <% var msgs ; %>
+    <div class="container">
+      <div class="header">
+        <button type="button" id="back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <h1>Private Chat Room</h1>
+        <button class="popup-button" id="button-btn" ><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div> 
+      <!-- <div class="receiver-name">Receiver: <%= user2 %></div> -->
+        <!-- <div class="online-users">
+          <p>Online Users:</p>
+          <p>John, Jane, Bob</p>
+        </div> -->
+        <div class="user-info">
+          <div class="user-icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="user-details">
+            <div class="username">Username: <%= user2 %></div>
+          </div>
+        </div>
+      <div class="chat-messages" id="message-container">
+        <% msgs.forEach(function(msgobj){ %>
+          <div class="chat-bubble">
+            <div class = "chat-sender-and-time">
+              <div class="chat-sender"><%=msgobj.sender%> Emergency Status: <%=msgobj.sender_emg_status%> </div>
+              <div class="chat-time"><%=msgobj.timesent%></div>
+            </div> 
+            <div class="chat-text"><%=msgobj.msg%></div>
+          </div>
+        <% }) %>  
+      </div>
+      <div class="message-input-container">
+        <input
+          id="message-input"
+          type="text"
+          class="message-input"
+          placeholder="Type your message..."
+        />
+        <button class="send-button" id="send-btn" onclick=post_msg()>Send</button>
+      </div>
+    </div>
+  </body>
+</html>

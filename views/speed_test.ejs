@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Speed Test</title>
+	<script src = "js/set_offline.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+	<link rel="icon" href="data:,">
+	<link rel="shortcut icon" href="/asset/logo.png">
+	<link rel="stylesheet" href="/css/speed_test.css">  
+	<script>
+		$(document).ready(function () {
+		  console.log("document loaded");
+		});
+	  </script>
+</head>
+<body>
+	<div id="voice-message-notification" class="voice-message-notification hidden" style="display: none;"">
+		<p>Recieved a new Emergency voice message! Click to view.</p>
+		<!-- <button id="close-notification" class="close-notification">&times;</button> -->
+	  </div>
+	<button type="button" id="back">Back</button>
+	<h1>Speed Test</h1>
+	<form>
+		<label for="duration">Duration (seconds):</label>
+		<input type="number" id="duration" name="duration" placeholder="Enter duration">
+		<label for="interval">Interval (milliseconds):</label>
+		<input type="number" id="interval" name="interval" placeholder="Enter interval">
+		<p class="msg" id="warning-msg"></p>
+		<progress id="progress-bar"value="0" max="100"></progress>
+        <button type="button" id="start-test">Start Test</button>
+        <button type="button" id="stop-test">Stop Test</button>
+	</form>
+	<div class="result"></div>
+</body>
+<script src="js/speed_test.js"></script>
+</html>

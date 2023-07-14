@@ -1,0 +1,38 @@
+[  
+    {  
+        "text":"Question 1 - do you have sand bags ?",
+        "id":"2",
+        "break_after":true,
+        "required":true,
+        "type":"single-select",
+        "options":[  
+            "A",
+            "B",
+            "C",
+            "D"
+        ]
+    },
+    {  
+        "text":"Question 2 - Do you live in a flood area?",
+        "id":"3",
+        "required":true,
+        "type":"single-select",
+        "options":[  
+            "a car",
+            "a towel",
+            "a plane",
+            "a television"
+        ]
+    },
+    {  
+        "text":"  Do you have a home electric genererator?",
+        "id":"4",
+        "type":"single-select",
+        "options":[  
+            "a cucumber",
+            "an ear of corn",
+            "a watermelon",
+            "cheese"
+        ]
+    }
+]

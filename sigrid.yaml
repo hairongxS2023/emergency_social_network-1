@@ -1,0 +1,11 @@
+component_depth: 1
+exclude:
+  - ".*/public/asset/.*"
+  - ".*/public/css/.*"
+  - ".*/documentation/.*"
+  - ".*/views/.*"
+  - ".*/app[.]js"
+languages:
+  - name: ejs
+  - name: javascript
+  - name: typescript

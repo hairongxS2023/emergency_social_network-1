@@ -1,0 +1,216 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background: #f4f4f4;
+    height: 8%;
+    text-align: center;
+    color: #e9f0f3;
+    display: flex;
+    background-color: #34495e;
+}
+
+
+.page-header {
+    left: 0%;
+    top: 0%;
+    width: 75%;
+    font-size:12px;
+    text-align: left;
+    padding: 4px;
+}
+
+.user-info {
+    padding-top: 0.2em;
+    align-items: center;
+    font-size: 16px;
+    color: #e9f0f3;
+}
+
+h1 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+}
+
+/* Flood report styles */
+.flood-reports {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.flood-report {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.flood-report:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.flood-report img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    height: 200px;
+}
+
+.flood-details {
+    padding: 15px;
+    background-color: #f8f8f8;
+}
+
+.flood-details h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.flood-details p {
+    margin: 5px 0;
+    font-weight: 300;
+}
+
+.flood-severity {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* Submit report button */
+.submit-report {
+    display: flex;
+    position: relative;
+    font-size: smaller;
+    top: 0%;
+    right: 0%;
+    margin: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+#submit-btn {
+    position:relative;
+    padding-top: 15%;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-bottom: 15%;
+}
+
+.flood-reports {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+#back {
+    position: relative;
+    border-radius: 12px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 1em 1em;
+    font-size: 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+}
+
+.delete-btn {
+    font-size: 1em;
+    padding: 8px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: #ee3f3f;
+}
+
+
+.upvote-btn,
+.downvote-btn {
+    font-size: 1em;
+    padding: 8px;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.delete-btn {
+    position: relative;
+    left: 0;
+    color: #e94310;
+}
+
+.upvote-btn {
+    color: green;
+}
+
+.downvote-btn {
+    color: red;
+}
+
+.vote-container {
+    display: flex;
+    align-items: center;
+}
+
+.vote-count {
+    font-size: 14px;
+    padding: 3%;
+}
+
+
+/* Footer styles */
+footer {
+    font-size: smaller;
+    position:relative;
+    bottom: 0%;
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+}

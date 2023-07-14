@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergency Chat Room</title>
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="/css/manageVolunteerRequest.css" />
+    <link rel="stylesheet" href="/css/popup.css" />
+    <script src = "/js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/get_cookie.js"></script>
+    <script src="/js/helper.js"></script>
+    <script type="module" src="/js/manageVolunteerRequest.js"> </script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <% var requests ; %>
+    <% var joinRequests ; %>
+    <div class="container">
+        <div class="header">
+            <h1>Manage My Volunteer Request(s)</h1>
+        </div>
+        <div class="container">
+            <div class="requests-header">
+                <h2>My Posted Requests</h2>
+            </div>
+            <div class="requests" id="request-container">
+                <% requests.forEach(function(reqObj){ %>
+                <div class="request-bubble" >
+                    <div class="request-detail-and-volunteers">
+                        <div class="request-detail">
+                            <div class="request-id">Post ID: #<%=reqObj._id%></div>
+                            <br />
+                            <div class='request-sender'>Requestor: <%=reqObj.user%></div>
+                            <div class='request-type'>Type: <%=reqObj.type%></div>
+                            <div class='request-details'>Details: <%=reqObj.details%></div>
+                            <div class='request-volunteers-needed'>Volunteers needed: <%=reqObj.volunteers_needed%>
+                            </div>
+                            <div class='request-fulfilled' id = "fulfill<%=reqObj._id%>"">Fulfilled: <%=reqObj.fulfilled%></div>
+                            <br />
+                        </div>
+                        <div class="request-volunteers">
+                            <div class="volunteer-title">Volunteers joined:</div>
+                            <% reqObj.volunteers_joined.forEach(function(volunteer){ %>
+                            <br />
+                            <div class="volunteer-name"><%= volunteer %></div>
+                            <% }) %> 
+                        </div>
+                    </div>
+                    <% if(reqObj.fulfilled == false){ %>
+                    <button class="fulfill-btn" name=<%=reqObj.user%> id=<%=reqObj._id %>>Fulfill this request</button>
+                    <% } %>
+                </div>
+                <% }) %>
+            </div>
+            <div class="join-request-header">
+                <h2>Join Requests</h2>
+            </div>
+            <div class="joinRequest" id="joinRequest-container">
+                <% if(joinRequests.length == 0){ %>
+                <div class= "no-join-request ">There are no join request yet.</div>
+                <% } %>
+                <% joinRequests.forEach(function(joinRequest){ %>
+                <div class="joinRequest-bubble" id="bubble<%=joinRequest.postID%>">
+                    <div>PostID: <%=joinRequest.postID%></div>
+                    <div>perspective volunteer:<%=joinRequest.username%></div>
+                    <div>Reason for joining: <%=joinRequest.reason%></div>
+                    <div></div>
+                    <div class="request-button-container">
+                        <div class="manage-post-container">
+                            <button id=<%=joinRequest.postID%> name = <%=joinRequest.username%> class = "apr-btn">Approve</button>
+                        </div>
+                        <div class="make-post-container">
+                            <button id=<%=joinRequest.postID%> name = <%=joinRequest.username%> class="deny-btn">Deny</button>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="manage-post-container">
+                <button class="back-btn" id="back-btn">back to volunteer request page</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

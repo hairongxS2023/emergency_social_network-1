@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergency Social Network Search</title>
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="css/InformationSearchCitizenPage.css" />
+    <link rel="stylesheet" href="css/ESNdirectoryPage.css" />
+    <script src = "js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/get_cookie.js"></script>
+    <script src="js/helper.js"></script>
+    <script type="module" src="js/InformationSearchCitizenPage.js"> </script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Emergency Social Network Search</h1>
+    </div>
+    <hr>
+    <div> 
+      <div style="margin-top: 20px;"> </div>
+      <form>
+        <div style="margin-top: 20px;"> </div>
+        <div class="container">
+          <label for="search"><b>Search</b></label>
+          <select name="citizen_criteria" id="citizen_criteria">
+            <option value="username">Search By Username</option>
+            <option value="status">Search By Status</option>
+            <option value="announcement">Search Announcements</option>
+          </select>
+          <input type="text" placeholder="Enter Search" name="search" id="search" style="margin: 10px; padding: 5px;">
+          <button type="submit" id="search-input-btn" style="font-size: 12px;">Search</button>
+        </div>
+      </form>
+      <div style="margin-top: 20px;"> </div>
+      <hr>
+      <button class="searchButtons" id="back-btn">Stop Search</button>
+     </div>
+    <div class="result"></div>
+    <div id="searchAnnouncementsResult" style="display:none;">
+      <h2>Search Result for Announcements</h2>
+      <div class="announce-container" id="announcement-search-container">
+      </div>
+      <button id="show_announcement_more_btn">show 10 more</button>
+    </div>
+    <div id="searchResult" style="display:none;">
+        <h2>Search Result</h2>
+        <table id="searchResultTable">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Status</th>
+                    <th>Emergency Status</th>
+                </tr>
+            </thead>
+            <tbody>
+              <!-- user information goes here -->
+            </tbody>
+        </table>
+    </div>
+  </body>
+</html>

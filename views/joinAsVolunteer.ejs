@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Join as a volunteer</title>
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="/css/volunteerRequest.css" />
+    <link rel="stylesheet" href="/css/popup.css" />
+    <script src = "/js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/get_cookie.js"></script>
+    <script src="/js/helper.js"></script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type = "module" src="/js/joinAsVolunteer.js"></script>
+</head>
+<body>
+    <% var currRequest ; %>
+    <div class="header">
+        <h1>Join as a volunteer</h1>
+    </div>
+    <div class="request-bubble">
+        <div class="request-detail-and-volunteers">
+            <div class="request-detail">
+                <div class="request-id">Post ID: #<%=currRequest._id%></div>
+                <br />
+                <div class='request-sender' >Requestor: <%=currRequest.user%></div>
+                <div class='request-type'>Type: <%=currRequest.type%></div>
+                <div class='request-details'>Details: <%=currRequest.details%></div>
+                <div class='request-volunteers-needed'>Volunteers needed: <%=currRequest.volunteers_needed%></div>
+                <div class='request-volunteers-joined'>Fulfilled: <%=currRequest.fulfilled%></div>
+            </div>
+            <div class="request-volunteers">
+                <% if (currRequest.volunteers_joined && currRequest.volunteers_joined.length > 0) { %>
+                <div class="volunteer-title">Volunteers joined:</div>
+                <% currRequest.volunteers_joined.forEach(function(volunteer){ %>
+                <br />
+                <div class="volunteer-name"><%= volunteer %></div>
+                <% }) %>
+                <% } else { %>
+                <div class="no-volunteers">No volunteers have joined this request yet.</div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class='request-join-form'>
+        <form>
+            <label for="join-reason">Why do you want to help?</label><br>
+            <textarea id="join-reason" name="join-reason" rows="4" cols="50"></textarea><br>
+        </form>
+    </div>
+    <div class="button-container">
+        <button id = "submit-btn" type="submit" name = <%=currRequest.user%>>Submit</button>
+        <button id="cancel-button">Cancel join</button>
+    </div>
+    <div id="popup" style="display: none;">
+        <div id="popup-content">
+            <p id="popup-message"></p>
+            <button id="close-button">Close</button>
+        </div>
+    </div>
+</body>
+</html>
+

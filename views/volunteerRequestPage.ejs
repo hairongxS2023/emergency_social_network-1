@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Volunteer Request Page</title>
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/asset/logo.png">
+    <link rel="stylesheet" href="css/volunteerRequest.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <script src ="js/set_offline.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/get_cookie.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="https://unpkg.com/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="module" src="js/volunteerRequest.js"> </script>
+</head>
+<body>
+    <% var requests; %>
+    <div class="container">
+        <div class="header">
+            <button type="button" id="back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+            <h1>Emergency Volunteer Request(s)</h1>
+        </div>
+        <%- include('./popup.ejs') %>
+        <div class="requests" id="request-container">
+            <% requests.forEach(function(reqObj){ %>
+            <div class="request-bubble">
+                <div class="request-detail-and-volunteers">
+                    <div class="request-detail">
+                        <div class="request-id">Post ID: #<%=reqObj._id%></div>
+                        <br/>
+                        <div class='request-sender'>Requestor: <%=reqObj.user%></div>
+                        <div class='request-type'>Type: <%=reqObj.type%></div>
+                        <div class='request-details'>Details: <%=reqObj.details%></div>
+                        <div class='request-volunteers-needed'>Volunteers needed: <%=reqObj.volunteers_needed%></div>
+                        <div class='request-volunteers-joined'>Fulfilled: <%=reqObj.fulfilled%></div>
+                        <br />
+                    </div>
+                    <div class="request-volunteers">
+                        <% if (reqObj.volunteers_joined && reqObj.volunteers_joined.length > 0) { %>
+                        <div class="volunteer-title">Volunteers joined:</div>
+                        <% reqObj.volunteers_joined.forEach(function(volunteer){ %>
+                        <br />
+                        <div class="volunteer-name"><%= volunteer %></div>
+                        <% }) %>
+                        <% } else { %>
+                        <div class="no-volunteers">No volunteers have joined this request yet.</div>
+                        <% } %>
+                    </div>
+                </div>
+                <% if(reqObj.fulfilled==false){%>
+                <button class="join-btn" name = <%=reqObj.user%> id = <%=reqObj._id %>>I want to help!</button>
+                <% } %>
+            </div>
+            <% }) %>
+        </div>
+        <div class="button-container">
+            <div class="manage-post-container">
+                <button class="manage-button" id="manage-btn">Manage My Posts</button>
+            </div>
+            <div class="make-post-container">
+                <button class="post-button" id="post-btn">Post A Request</button>
+            </div>
+        </div>
+    </div>
+    <div id="popup" style="display: none;">
+        <div id="popup-content">
+            <p id="popup-message"></p>
+            <button id="close-button">Close</button>
+        </div>
+    </div>
+</body>
+</html>

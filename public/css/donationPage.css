@@ -1,0 +1,281 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+/* .container {
+    display: flex;
+    flex-direction: column;
+    height:95vh;
+} */
+.container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height:95vh;
+}
+/* .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #34495e;
+    color: white;
+    /* padding-right: 0.7em; */
+/* }
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    flex-shrink: 1;
+} */ 
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #34495e;
+  color: white;
+}
+
+.header h1 {
+  flex: 1 1 100%;
+  text-align: center;
+  margin: 0;
+  font-size: 2rem;
+  flex-shrink: 1;
+}
+
+.header button {
+  background-color: #416992;
+}
+
+.receiver-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+    margin-bottom: 0.1em;
+    background-color: #f1f1f1;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-icon {
+    font-size: 30px;
+    color: #555;
+    margin-right: 10px;
+  }
+
+  .donation-sender {
+    padding-top: 0.2em;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: blue;
+  }
+  
+  
+#back {
+    position: relative;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 1em 1em;
+    font-size: 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+#back:hover {
+    color: rgb(7, 52, 62);
+  }
+  
+.donation-messages {
+    padding: 1rem;
+    flex: 5;
+    overflow-y: scroll;
+    margin-top: 10px;
+    height: calc(100vh - 70px); /* Change 70px to the height of your header/footer */
+  /* overflow-y: scroll;  */
+}
+.donation-bubble {
+    flex-direction: column;
+    margin-bottom: 1rem;
+    background-color: #ecf0f1;
+    border-radius: 0.5rem;
+}
+.donation-sender-and-time {
+    display: flex;
+    padding: 0.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.donation-text {
+    color: #2c3e50;
+    padding: 1rem;
+    max-width: 60%;
+}
+.donation-sender {
+    font: bold;
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+.donation-time {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    align-self: flex-end;
+}
+.donation-input-container {
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    background-color: #ecf0f1;
+    padding: 0.5rem;
+    border-top: 1px solid #dcdde1;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.donation-input-container button{
+    margin-top: 20px;
+    background-color:  #416992;
+    flex: 1 1 100%;
+}
+
+.message-input {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    background-color: #dcdde1;
+}
+.send-button {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0 0.2s ease;
+}
+.send-button {
+  flex: 1 1 100%;
+}
+.send-button:hover {
+    background-color: #34495e;
+}
+
+
+button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: #2c3e50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0 0.2s ease;
+}
+  
+  #back {
+    border-radius: 12px;
+  }
+  
+  #search-btn {
+    border-radius: 12px;
+  }
+
+.container h3{
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
+  }
+
+
+@media screen and (max-width: 540px) 
+ {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header .online-users p {
+        font-size: 1.5em;
+    }
+
+    .sidebar h2 {
+        font-size: 1.5em;
+    }
+
+    .chat-text {
+        max-width: 100%;
+        font-size: 1em;
+    }
+
+    #search-btn {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* #popup-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+  } */
+
+  #popup-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup-content {
+    background-color: #fefefe;
+    margin: 0 auto; /* remove top margin */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    position: absolute; /* change position to absolute */
+    top: 50%; /* set top to 50% */
+    left: 50%; /* set left to 50% */
+    transform: translate(-50%, -50%); /* center horizontally and vertically */
+  }
+  
+  

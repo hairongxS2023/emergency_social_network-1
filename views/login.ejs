@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="data:,">
+    <link rel="shortcut icon" href="asset/logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <p class="msg" id="warning-msg"></p>
+        <form class="form" method="POST" action="/login">
+            <h1>Login</h1>
+            <label>username</label>
+            <input type="text" id="username" name="username" placeholder="Enter Username">
+            <label>password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password">
+            <div class="horizontal-align">
+                <button type="submit" class="login-button">Login</button>
+                <button type="submit" class="mainpage-button" formaction="/">Back to Main Page</button>
+            </div>
+        </form>
+    </div>
+    <div id="inactive-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your account is inactive</h2>
+            <p>Please contact our support team for assistance.</p>
+        </div>
+    </div>
+</body>
+<script src="js/login.js"></script>
+</html>
